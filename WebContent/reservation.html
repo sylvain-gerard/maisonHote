@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Réservation</title>
+    <!-- CSS Materialize -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="all" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="all" />
+    <!-- Mes CSS -->
+    <link href="css/mystyle.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- NAV -->
+    <nav class="blue darken-4">
+        <div class="nav-wrapper">
+            <a href="https://www.luxuryhomemagazine.com/"><img
+				src="img/logo.jpg" alt="Logo"></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.html"><i class="material-icons">home</i></a></li>
+                <li><a href="index.html">La Villa</a></li>
+                <li><a href="region.html">L'ile de Santorin</a></li>
+                <li class="active"><a href="reservation.html">Réservation</a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="side-nav teal">
+                <li><a href="index.html">La Villa Andromède</a></li>
+                <li><a href="region.html">L'ile de Santorin</a></li>
+                <li class="active"><a href="reservation.html">Réservation</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i
+				class="material-icons">menu</i></a>
+        </div>
+    </nav>
+    <!-- BANDEAU -->
+    <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+            <div class="container center">
+                <br>
+                <br>
+                <h2 class="header">Réservation</h2>
+                <div class="row center">
+                    <h5 class="header col s12 hide-on-small-only">Convaincu(e)s ? Il ne reste plus qu'à remplir ce formulaire ( intégralement ) pour réserver, vous pouvez aussi obtenir une estimation du montant de la location.</h5>
+                </div>
+
+                <br>
+                <br>
+
+            </div>
+        </div>
+        <div class="parallax">
+            <img src="img/bandeau.jpg" alt="Unsplashed background img 1">
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <!-- FORMULAIRE -->
+    <div class="container">
+
+        <div class="row">
+            <!-- formulaire -->
+            <form method="post" action="RegisterReservation">
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">account_circle</i> <input value="Gérard" id="first_name" type="text" class="validate" name="nom" required="" aria-required="true"> <label for="first_name">Nom *</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">account_circle</i> <input value="Sylvain" id="last_name" type="text" class="validate" name="prenom" required="" aria-required="true"> <label for="last_name">Prénom *</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">email</i> <input value="twentysyl@gmail.com" id="email" type="email" class="validate" name="email" required="" aria-required="true"> <label for="email">Email
+							*</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">phone</i> <input value="+1 99 88 77 66 55" id="phone" type="text" class="validate" name="phone" required="" aria-required="true"> <label for="phone">Téléphone *</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m6">
+                        <p>Type de Séjour : *</p>
+                        <p>
+                            <input name="typeSejour" type="radio" id="loisir" value="Loisir" required="" aria-required="true" />
+                            <label for="loisir">Séjour Loisir</label>
+                        </p>
+                        <p>
+                            <input name="typeSejour" type="radio" id="pro" value="Professionnel" /> <label for="pro">Séjour Pro</label>
+                        </p>
+                    </div>
+                    <div class="col s12 m6">
+                        <p>Options du séjour :</p>
+                        <p>
+                            <input name="Parking" type="checkbox" id="parking" value="Parking" /> <label for="parking">Parking</label>
+                        </p>
+                        <p>
+                            <input name="Animal" type="checkbox" id="animal" value="Animal" />
+                            <label for="animal">Animal</label>
+                        </p>
+                        <p>
+                            <input name="Fumeur" type="checkbox" id="fumeur" value="Fumeur" />
+                            <label for="fumeur">Fumeur</label>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m4">
+                        <select name="nbrePersonnes">
+							<option value="" disabled selected>Nombre de personnes *</option>
+							<option value="1" id="1">1 personnes</option>
+							<option value="2" id="2">2 personnes</option>
+							<option value="3" id="3">3 personnes</option>
+							<option value="4" id="4">4 personnes</option>
+							<option value="5" id="5">5 personnes</option>
+							<option value="6" id="6">6 personnes</option>
+						</select>
+                    </div>
+                    <div class="input-field col s12 m4">
+                        <select name="dureeSejour">
+							<option value="" disabled selected>Durée du séjour *</option>
+							<option value="1" id="1s">1 semaine</option>
+							<option value="2" id="2s">2 semaines</option>
+							<option value="3" id="3s">3 semaines</option>
+							<option value="4" id="4s">4 semaines</option>
+
+						</select>
+                    </div>
+                    <div class="input-field col s12 m4">
+                        <i class="material-icons prefix">date_range</i> <input id="debutSejour" type="text" class="datepicker" name="debutSejour"> <label for="debutSejour">Date
+							de début *</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <p>(*) : champs obligatoires</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12">
+                        <button class="btn waves-effect waves-light real" type="submit">
+							Envoyer <i class="material-icons right">send</i>
+						</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="page-footer blue darken-4">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Luxury Properties Worldwilde</h5>
+                    <p class="grey-text text-lighten-4">Nous avons sélectionné pour vous des lieux d'exception en France et aux quatre coins du monde afin de vous offrir le meilleur de chaque destination et de vous faire découvrir de véritables trésors à travers le monde pour vos prochaines vacances.</p>
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Qui sommes-nous ?</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">Locations
+								saisonnières</a></li>
+                        <li><a class="white-text" href="#!">Notre offre</a></li>
+                        <li><a class="white-text" href="#!">Conditions générales
+								d'utilisation</a></li>
+                        <li><a class="white-text" href="#!">Informations légales</a></li>
+                    </ul>
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Nous suivre</h5>
+                    <div>
+                        <a class="mt-facebook mt-share-inline-circle-sm" href="https://www.facebook.com/sharer/sharer.php?u="> <img
+							src="http://mojotech-static.s3.amazonaws.com/facebook@2x.png"
+							alt="Facebook">
+						</a> <a class="mt-twitter mt-share-inline-circle-sm" href="http://twitter.com/intent/tweet?text=&amp;url="> <img
+							src="http://mojotech-static.s3.amazonaws.com/twitter@2x.png"
+							alt="Twitter">
+						</a> <a class="mt-linkedin mt-share-inline-circle-sm" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=&amp;summary=">
+							<img
+							src="http://mojotech-static.s3.amazonaws.com/linkedin@2x.png"
+							alt="Linkedin">
+						</a> <a class="mt-google mt-share-inline-circle-sm" href="https://plus.google.com/share?url="> <img
+							src="http://mojotech-static.s3.amazonaws.com/google@2x.png"
+							alt="Google">
+						</a> <a class="mt-pinterest mt-share-inline-circle-sm" href="http://www.pinterest.com/pin/create/button/?url=&amp;media=&amp;guid=1234&amp;description=">
+							<img
+							src="http://mojotech-static.s3.amazonaws.com/pinterest@2x.png"
+							alt="Pinterest">
+						</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <p>
+                    <img style="border: 0; width: 88px; height: 31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="CSS Valide !" /> © 2017 Réalisé par Sylvain Gérard
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- BOUTON FLOTTANT -->
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large deep-purple z-depth-5" href="#top"><i
+			class="large material-icons">home</i></a>
+    </div>
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="js/materialize.min.js" type="text/javascript"></script>
+    <script src="js/init.js" type="text/javascript"></script>
+    <script src="js/jquery.js" type="text/javascript"></script>
+
+</body>
+
+</html>
