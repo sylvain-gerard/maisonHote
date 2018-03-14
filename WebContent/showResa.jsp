@@ -1,7 +1,6 @@
 <%@page import="co.simplon.servlet.beans.Reservation"%>
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="UTF-8"%>
-        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
             <!DOCTYPE html>
             <html lang="en">
 
@@ -50,24 +49,24 @@
                             <div class="row">
                                 <div class="col s12">
                                     <ul class="collection with-header">
-                                        <li class="collection-header">${message} ${jour }/${mois }/${annee } :</li>
-                                        <li class="collection-item">Nom : ${resa.nom}</li>
-                                        <li class="collection-item">Prénom : ${resa.prenom}</li>
-                                        <li class="collection-item">Email : ${resa.email}</li>
-                                        <li class="collection-item">Téléphone : ${resa.phone}</li>
-                                        <li class="collection-item">Type de séjour : ${resa.typeSejour}
+                                        <li class="collection-header"><%=request.getAttribute("message")%></li>
+                                        <li class="collection-item">Nom : <%= resa.getNom() %></li>
+                                        <li class="collection-item">Prénom : <%= resa.getPrenom() %></li>
+                                        <li class="collection-item">Email : <%= resa.getEmail() %></li>
+                                        <li class="collection-item">Téléphone : <%= resa.getPhone() %></li>
+                                        <li class="collection-item">Type de séjour : <%= resa.getTypeSejour() %>
                                         </li>
-                                        <li class="collection-item">Option Parking : ${resa.parkingHasString()}
+                                        <li class="collection-item">Option Parking : <%= resa.parkingHasString() %>
                                         </li>
-                                        <li class="collection-item">Option Animal : ${resa.animalHasString()}
+                                        <li class="collection-item">Option Animal : <%= resa.animalHasString() %>
                                         </li>
-                                        <li class="collection-item">Option Fumeur : ${resa.fumeurHasString()}
+                                        <li class="collection-item">Option Fumeur : <%= resa.fumeurHasString() %>
                                         </li>
-                                        <li class="collection-item">Nombre de Personnes : ${resa.nbrePersonnes}
+                                        <li class="collection-item">Nombre de Personnes : <%= resa.getNbrePersonnes() %>
                                         </li>
-                                        <li class="collection-item">Durée du séjour : ${resa.dureeSejour} semaine(s)</li>
-                                        <li class="collection-item">Début du séjour : ${resa.debutSejour }</li>
-                                        <li class="collection-header">Estimation du prix : ${resa.calculPrix() } euros</li>
+                                        <li class="collection-item">Durée du séjour : <%=resa.getDureeSejour() %> semaine(s)</li>
+                                        <li class="collection-item">Début du séjour : <%= resa.getDebutSejour()  %></li>
+                                        <li class="collection-header">Estimation du prix : <%= resa.calculPrix()  %> euros</li>
                                     </ul>
                                 </div>
                             </div>

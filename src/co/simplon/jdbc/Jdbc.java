@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import co.simplon.servlet.beans.Reservation;
-import co.simplon.servlet.beans.ReservationManager;
 
 public class Jdbc {
 
@@ -21,8 +20,7 @@ public class Jdbc {
 
 	private static Connection connection;
 
-	public void connectToDB() throws Exception {
-
+	public void connectToDB() throws  ClassNotFoundException, SQLException {
 
 		try {
 			
@@ -37,7 +35,7 @@ public class Jdbc {
 
 	public void insertData(String nom, String prenom, String email, String phone, String typeSejour, 
 			Boolean Parking, Boolean Fumeur, Boolean Animal, String nbrePersonnes, String dureeSejour, 
-			String debutSejour, Integer prix) throws SQLException {
+			String debutSejour, Integer prix) throws Exception {
 		try {			
 			String sql = "INSERT INTO `reservations` (`nom`, `prenom`, `email`, `phone`, `typeSejour`, `parking`, `fumeur`, `animal`, `nbrePersonnes`, `dureeSejour`, `debutSejour`, `prix`) "
 					+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";			
@@ -54,15 +52,18 @@ public class Jdbc {
 			ps.setString(10, dureeSejour);
 			ps.setString(11, debutSejour);
 			ps.setInt(12, prix);
+			@SuppressWarnings("unused")
 			int rows = ps.executeUpdate();
 			ps.close();
+			System.out.println("------------------------------------------------------");
+			System.out.println("Enregistrement de la réservation ok !");
 		}
 		catch(SQLException e){
 			System.out.println("An error occured in Jdbc's insertData() method.");
 		}
 	}
 
-	public List<Reservation> showData() throws SQLException {
+	public List<Reservation> showData() throws SQLException, ClassNotFoundException {
 		Statement statement = null;
 		ResultSet rs = null;
 
@@ -70,7 +71,7 @@ public class Jdbc {
 		String sql = "SELECT * FROM reservations";
 		List<Reservation> listeReservations = new ArrayList<Reservation>();
 
-		try {			
+		try {	
 			rs = statement.executeQuery(sql);		
 			while (rs.next()) {
 							
@@ -89,6 +90,8 @@ public class Jdbc {
 				resa.setPrix(rs.getInt("prix"));
 				
 				listeReservations.add(resa);
+				System.out.println("------------------------------------------------------");
+				System.out.println("Lecture d'une réservation enregistrées.");
 } 
 		} catch (SQLException e) {
 			System.out.println("An error occured in Jdbc's showData() method.");

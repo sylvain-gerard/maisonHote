@@ -3,19 +3,14 @@ package co.simplon.servlet.servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.joda.time.DateTime;
-
-
 import co.simplon.jdbc.Jdbc;
 import co.simplon.servlet.beans.Reservation;
-import co.simplon.servlet.beans.ReservationManager;
 
 
 @WebServlet("/RegisterReservation")
@@ -52,13 +47,7 @@ public class RegisterReservation extends HttpServlet {
 			this.getServletContext().getRequestDispatcher("/error.jsp").forward(request, response);
 
 		} else {
-			message = "Récapitulatif de votre réservation du ";
-
-			// Date de la demande de réservation, affichée dans le message dans showResa.jsp .
-			DateTime dt = new DateTime();
-			Integer jourDuMois = dt.getDayOfMonth();
-			Integer moisDeAnnee = dt.getMonthOfYear();
-			Integer annee = dt.getYear();
+			message = "Récapitulatif de votre réservation :";
 
 			Reservation newResa = new Reservation();
 			newResa.setNom(nom);
@@ -72,14 +61,9 @@ public class RegisterReservation extends HttpServlet {
 			newResa.setDureeSejour(dureeSejour);
 			newResa.setNbrePersonnes(nbrePersonnes);
 			newResa.setDebutSejour(debutSejour);
-
 			Integer prix = newResa.calculPrix();
-
+			newResa.setPrix(prix);
 			request.setAttribute("resa", newResa);
-			request.setAttribute("message", message );
-			request.setAttribute("jour", jourDuMois);
-			request.setAttribute("mois", moisDeAnnee);
-			request.setAttribute("annee", annee);
 
 			Jdbc resaJdbc = new Jdbc();
 			try {
@@ -91,6 +75,9 @@ public class RegisterReservation extends HttpServlet {
 			try {
 				resaJdbc.insertData(nom, prenom, email, phone, typeSejour, parking, fumeur, animal, nbrePersonnes, dureeSejour, debutSejour, prix);
 			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			finally {

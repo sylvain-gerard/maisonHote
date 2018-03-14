@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.simplon.jdbc.Jdbc;
 import co.simplon.servlet.beans.Reservation;
-import co.simplon.servlet.beans.ReservationManager;
 
 
 @WebServlet("/ShowReservation")
@@ -35,7 +34,7 @@ public class ShowReservation extends HttpServlet {
 		try {
 			listeReservations = listeJdbc.showData();
 			
-		} catch (SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		finally {
